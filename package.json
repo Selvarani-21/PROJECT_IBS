@@ -1,0 +1,16 @@
+{
+  "name": "project_ibs",
+  "version": "1.0.0",
+  "description": "INTERNET BANKING SYSTEM",
+  "main": "Script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "selvarani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "node.js": "^0.0.1-security",
+    "nodejs": "^0.0.0"
+  }
+}
