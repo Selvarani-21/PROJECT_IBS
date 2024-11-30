@@ -1,8 +1,7 @@
-// Store accounts in memory
-const accounts = {};
+const API_URL = 'http://localhost:3000';
 
 // Handle Create Account Form submission
-document.getElementById('createForm').addEventListener('submit', function (event) {
+document.getElementById('createForm').addEventListener('submit', async function (event) {
   event.preventDefault();
 
   const userId = document.getElementById('userId').value;
@@ -10,35 +9,38 @@ document.getElementById('createForm').addEventListener('submit', function (event
   const password = document.getElementById('password').value;
   const balance = parseFloat(document.getElementById('balance').value);
 
-  if (accounts[userId]) {
-    alert('Account with this User ID already exists!');
-    return;
+  try {
+    const response = await fetch(`${API_URL}/create-account`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, username, password, balance }),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) throw new Error(result.error);
+
+    alert(result.message);
+    document.getElementById('createForm').reset();
+  } catch (error) {
+    alert(`Error: ${error.message}`);
   }
-
-  accounts[userId] = {
-    username,
-    password,
-    balance
-  };
-
-  alert('Account created successfully!');
-
-  // Reset the form
-  document.getElementById('createForm').reset();
 });
 
 // Handle View Account Form submission
-document.getElementById('viewForm').addEventListener('submit', function (event) {
+document.getElementById('viewForm').addEventListener('submit', async function (event) {
   event.preventDefault();
 
   const userId = document.getElementById('viewuserId').value;
 
-  if (!accounts[userId]) {
-    alert('Account not found!');
-    return;
+  try {
+    const response = await fetch(`${API_URL}/view-account/${userId}`);
+    const result = await response.json();
+
+    if (!response.ok) throw new Error(result.error);
+
+    alert(`Account Details:\nUsername: ${result.username}\nBalance: $${result.balance.toFixed(2)}`);
+  } catch (error) {
+    alert(`Error: ${error.message}`);
   }
-
-  const account = accounts[userId];
-
-  alert(`Account Details:\nUsername: ${account.username}\nBalance: $${account.balance.toFixed(2)}`);
 });

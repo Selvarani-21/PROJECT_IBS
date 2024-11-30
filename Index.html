@@ -3,19 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Internet Banking System</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Account Management</title>
 </head>
 <body>
-
-  <h1>Internet Banking System</h1>
-
-  <!-- Create Account Form -->
   <h2>Create Account</h2>
   <form id="createForm">
     <label for="userId">User ID:</label>
-<input type="number" id="userId" name="userId" required>
-<br>
+    <input type="number" id="userId" name="userId" required>
+    <br>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
     <br>
@@ -28,16 +23,15 @@
     <button type="submit">Create Account</button>
   </form>
 
-  <!-- View Account Form -->
   <h2>View Account Details</h2>
   <form id="viewForm">
-    <label for="ViewUserId">User ID:</label>
-    <input type="number" id="ViewUserId" required>
+    <label for="viewuserId">User ID:</label>
+    <input type="number" id="viewuserId" required>
     <button type="submit">View Account</button>
   </form>
-  
-  <div id="accountDetails"></div>
 
   <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+
 </body>
 </html>
