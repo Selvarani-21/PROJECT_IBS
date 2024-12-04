@@ -1,7 +1,7 @@
 // Store accounts in memory
 const accounts = {};
 
-// Create Account Form submission have to handle
+// Creating Account Form submission 
 document.getElementById('createForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -27,7 +27,7 @@ document.getElementById('createForm').addEventListener('submit', function (event
   document.getElementById('createForm').reset();
 });
 
-// Handle View Account Form submission
+// View Account Form submission
 document.getElementById('viewForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
