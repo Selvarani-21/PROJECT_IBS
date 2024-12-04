@@ -86,4 +86,4 @@ function viewAccount(event) {
   const account = accounts[userId];
 
   alert(`Account Details:\nUsername: ${account.username}\nBalance: $${account.balance.toFixed(2)}`);
-});
+};
