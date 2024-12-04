@@ -17,7 +17,7 @@ app.use(express.static('public'));
 
 // Create (Register a new user)
 app.post('/create', (req, res) => {
-  const { username, password, balance } = req.body;
+  const { userID, username, password, balance } = req.body;
   const newUser = { id: Date.now(), username, password, balance: parseFloat(balance) || 0 };
   users.push(newUser);
   res.status(201).json({ message: 'User created successfully', user: newUser });
