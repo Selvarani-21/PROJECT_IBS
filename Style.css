@@ -6,7 +6,7 @@ body {
 }
 
 h2 {
-  color: #333;
+  color: #191414;
   text-align: center;
 }
 
@@ -56,11 +56,7 @@ button:hover {
   max-width: 400px;
   padding: 10px;
   color: white;
-<<<<<<< HEAD
-  background-color: #ff6b6b;
-=======
   background-color: #e90f99;
->>>>>>> 8cb2229fd6a740f4a21a29db88d95e4297bfef4b
   border-radius: 4px;
   text-align: center;
 }
