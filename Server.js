@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-// Sample user data (in-memory for simplicity)
+// Sample user data
 let users = [];
 
 // Middleware to parse JSON and URL-encoded bodies
