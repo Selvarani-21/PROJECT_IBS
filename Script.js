@@ -27,7 +27,7 @@ document.getElementById('createForm').addEventListener('submit', function (event
   document.getElementById('createForm').reset();
 });
 
-// View Account Form submission
+// View Account form
 document.getElementById('viewForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
