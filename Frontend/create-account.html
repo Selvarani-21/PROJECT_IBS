@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Create Account</title>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Create Account</h1>
+        
+        <form id="account-form">
+            <label for="user-id">User ID</label>
+            <input type="number" id="user-id" placeholder="Enter User ID" required>
+
+            <label for="account-type">Account Type</label>
+            <select id="account-type" required>
+                <option value="">Select Account Type</option>
+                <option value="savings">Savings</option>
+                <option value="checking">Checking</option>
+            </select>
+
+            <label for="balance">Initial Balance</label>
+            <input type="number" id="balance" placeholder="Initial Balance" required>
+
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', () => {
+    const accountForm = document.getElementById('account-form');
+
+    accountForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const userId = document.getElementById('user-id').value;
+        const accountType = document.getElementById('account-type').value;
+        const balance = document.getElementById('balance').value;
+
+        try {
+            const response = await fetch('http://localhost:5000/accounts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId, accountType, balance }),
+            });
+
+            console.log('Raw Response:', response);
+
+            if (response.ok) {
+                const data = await response.json();
+                alert('Account created successfully!');
+                accountForm.reset();
+            } else {
+                // Attempt to parse error response
+                try {
+                    const error = await response.json();
+                    alert(`Error: ${error.message}`);
+                } catch (err) {
+                    // Handle unexpected HTML response
+                    const errorText = await response.text();
+                    console.error('HTML Response:', errorText);
+                    alert('An unexpected error occurred.');
+                }
+            }
+        } catch (error) {
+            console.error('Unexpected error:', error);
+            alert('An unexpected error occurred while creating the account.');
+        }
+    });
+});
+
+
+    </script>
+</body>
+</html>
