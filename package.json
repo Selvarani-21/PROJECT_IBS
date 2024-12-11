@@ -9,8 +9,18 @@
   "author": "selvarani",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.11.0",
+    "mongoose": "^8.8.4",
+    "mysql2": "^3.11.5",
     "node.js": "^0.0.1-security",
-    "nodejs": "^0.0.0"
+    "nodejs": "^0.0.0",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
   }
 }

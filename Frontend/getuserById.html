@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Get User by ID</title>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+           
+        </ul>
+    </nav>
+
+    <h1>Get User by ID</h1>
+
+    <form id="get-user-form">
+        <label for="get-user-id">User ID:</label>
+        <input type="number" id="get-user-id" name="get-user-id" required>
+        <button type="submit">Get User</button>
+      </form>
+
+    <div id="user-details" style="display: none;">
+        <h2>User Details:</h2>
+        <p><strong>Name:</strong> <span id="user-name"></span></p>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+        <p><strong>Created At:</strong> <span id="user-created-at"></span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
