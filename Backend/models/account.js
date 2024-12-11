@@ -1,8 +1,6 @@
-// models/account.js
-
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const User = require('./user'); // Assuming the User model is already defined
+const User = require('./user');
 
 const Account = sequelize.define('Account', {
     account_type: {
@@ -12,10 +10,22 @@ const Account = sequelize.define('Account', {
     balance: {
         type: DataTypes.DECIMAL(15, 2),
         defaultValue: 0.00,
+        allowNull: false,
+    },
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Ensure userId is always required
+        references: {
+            model: User,
+            key: 'id',
+        },
     },
 });
 
-// Define a relationship: Each account belongs to a user
-Account.belongsTo(User);
+Account.belongsTo(User, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+});
 
 module.exports = Account;
